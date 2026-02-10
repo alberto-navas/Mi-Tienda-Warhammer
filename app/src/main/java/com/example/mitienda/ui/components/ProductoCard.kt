@@ -1,6 +1,5 @@
 package com.example.mitienda.ui.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -8,8 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import com.example.mitienda.model.Producto
 
 @Composable
@@ -25,8 +24,9 @@ fun ProductoCard(
             modifier = Modifier.padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = painterResource(producto.imageRes),
+            // Usamos AsyncImage de Coil para cargar la URL de internet
+            AsyncImage(
+                model = producto.imageUrl,
                 contentDescription = producto.nombre,
                 modifier = Modifier.size(64.dp)
             )
